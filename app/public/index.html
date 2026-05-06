@@ -360,7 +360,7 @@ document.getElementById('start-btn').addEventListener('click',startCountdown);
 document.getElementById('btn-retry').addEventListener('click',()=>show('s-title'));
 document.getElementById('btn-x').addEventListener('click',()=>{
   const rank=getRank(crushes);
-  const txt=`20秒でりんごを${crushes}個握りつぶした！💪🍎\n称号：${rank.label}\n連打回数${totalTaps}回\n#マッスルリンゴクラッシュ\nhttps://あなたのURL.onrender.com`;
+  const txt=`20秒でりんごを${crushes}個握りつぶした！💪🍎\n称号：${rank.label}\n連打回数${totalTaps}回\n#マッスルリンゴクラッシュ\nhttps://muscleringocrash.onrender.com`;
   window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(txt),'_blank');
   
 });
