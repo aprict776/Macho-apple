@@ -361,7 +361,7 @@ document.getElementById('btn-retry').addEventListener('click',()=>show('s-title'
 document.getElementById('btn-x').addEventListener('click',()=>{
   const rank=getRank(crushes);
   const txt=`20秒でりんごを${crushes}個握りつぶした！💪🍎\n称号：${rank.label}\n連打回数${totalTaps}回\n#マッスルリンゴクラッシュ`;
-  const gameUrl = window.location.origin;
+  const gameUrl = 'https://muscleringocrash.onrender.com/';
   window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(txt),'_blank');
   
 });
