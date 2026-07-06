@@ -1,14 +1,14 @@
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;user-select:none;}
-#g{font-family:var(--font-sans);display:flex;flex-direction:column;align-items:center;min-height:540px;}
+#g{font-family:var(--font-sans);display:flex;flex-direction:column;align-items:center;min-height:540px;overflow-x:hidden;width:100%;}
 .screen{display:none;flex-direction:column;align-items:center;width:100%;}
 .screen.on{display:flex;}
 #s-title{position:relative;min-height:540px;justify-content:space-between;}
 .title-bg-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;z-index:0;}
 .title-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.35) 0%,rgba(0,0,0,0.15) 40%,rgba(0,0,0,0.6) 100%);z-index:1;}
 .title-top{position:relative;z-index:2;padding:2rem 1.5rem 0;text-align:center;width:100%;}
-.game-title{font-size:52px;font-weight:900;line-height:1.15;color:#fff;text-shadow:0 4px 16px rgba(17, 6, 6, 0.7);}
+.game-title{font-size:clamp(32px,9vw,52px);font-weight:900;line-height:1.15;color:#fff;text-shadow:0 4px 16px rgba(17, 6, 6, 0.7);}
 .game-title span{color:#FF8C50;}
 .title-bottom{position:relative;z-index:2;width:100%;padding:0 1rem 2rem;display:flex;flex-direction:column;align-items:center;gap:1rem;}
 
@@ -17,10 +17,10 @@
   position:fixed;inset:0;z-index:9999;
   pointer-events:none;opacity:0;
 }
-
 #transition-overlay img{
   width:100%;height:100%;object-fit:cover;object-position:center top;
 }
+
 @keyframes fade-in-out{
   0%  {opacity:0;}
   20% {opacity:1;}
@@ -56,9 +56,12 @@
   position: fixed;
   bottom: 0;
   right: 0;
-  width: 200px;
+  width: clamp(110px, 32vw, 200px);
   pointer-events: none;
   z-index: 10;
+}
+@media (max-height: 700px){
+  .result-deco-img{width:clamp(90px,24vw,150px);}
 }
 
 .rank-row{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:11px;}
@@ -72,7 +75,7 @@
 
 #s-cd{gap:1.5rem;padding-top:3rem;}
 .cd-lbl{font-size:15px;color:var(--color-text-secondary);}
-.cd-n{font-size:110px;font-weight:500;color:#D85A30;line-height:1;animation:pop .35s ease-out;}
+.cd-n{font-size:clamp(70px,22vw,110px);font-weight:500;color:#D85A30;line-height:1;animation:pop .35s ease-out;}
 @keyframes pop{from{transform:scale(1.5);opacity:.3;}to{transform:scale(1);opacity:1;}}
 #s-game{gap:1rem;padding:1.5rem 1rem 2rem;max-width:380px;width:100%;}
 .hud{display:grid;grid-template-columns:1fr 1fr 1fr;width:100%;background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:12px 8px;}
@@ -105,7 +108,7 @@
 .tap-area:active,.tap-area.pressed{transform:translateY(2px);border-bottom:1px solid var(--color-border-secondary);}
 #s-result{gap:1.2rem;padding:2rem 1rem;max-width:380px;width:100%;}
 .res-card{width:100%;background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:2rem 1.5rem;text-align:center;}
-.res-n{font-size:80px;font-weight:500;color:#D85A30;line-height:1;}
+.res-n{font-size:clamp(56px,16vw,80px);font-weight:500;color:#D85A30;line-height:1;}
 .res-unit{font-size:15px;color:var(--color-text-secondary);margin-top:4px;}
 .res-rank{font-size:20px;font-weight:500;color:var(--color-text-primary);margin-top:14px;}
 .res-rank.legendary{color:#B8860B;font-size:22px;animation:glitter 1.2s ease-in-out infinite alternate;}
@@ -362,6 +365,5 @@ document.getElementById('btn-x').addEventListener('click',()=>{
   const rank=getRank(crushes);
   const txt=`20秒でりんごを${crushes}個握りつぶした！💪🍎\n称号：${rank.label}\n連打回数${totalTaps}回\n#マッスルリンゴクラッシュ\nhttps://muscleringocrash.onrender.com`;
   window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(txt),'_blank');
-  
 });
 </script>
